@@ -1,0 +1,91 @@
+/* ─── Google Fonts — must come before @tailwind directives ─────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base resets ───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-stone-50 text-stone-800 font-sans antialiased;
+  min-height: 100vh;
+}
+
+/* ─── Utility layer ─────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Card surface */
+  .card {
+    @apply bg-white rounded-xl shadow-card border border-stone-100;
+  }
+
+  /* Smooth card hover lift */
+  .card-hover {
+    @apply transition-shadow duration-200 hover:shadow-card-hover;
+  }
+
+  /* Section heading */
+  .section-title {
+    @apply text-lg font-semibold text-stone-800 mb-4;
+  }
+
+  /* Confidence badges */
+  .badge-high {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5
+           text-xs font-medium bg-green-100 text-green-800;
+  }
+  .badge-medium {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5
+           text-xs font-medium bg-amber-100 text-amber-800;
+  }
+  .badge-low {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5
+           text-xs font-medium bg-red-100 text-red-700;
+  }
+
+  /* Unverified org badge */
+  .badge-unverified {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5
+           text-xs font-medium bg-amber-100 text-amber-800 border border-amber-300;
+  }
+
+  /* Mode badge in header */
+  .badge-mode {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1
+           text-xs font-medium bg-stone-100 text-stone-600 border border-stone-200;
+  }
+  .badge-mode-ai {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1
+           text-xs font-medium bg-brand-100 text-brand-700 border border-brand-300;
+  }
+
+  /* Match reason chip (org cards) */
+  .chip {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5
+           text-xs font-medium bg-teal-50 text-teal-700 border border-teal-200;
+  }
+
+  /* Animated spinner */
+  .spinner {
+    @apply inline-block h-5 w-5 animate-spin rounded-full
+           border-2 border-stone-200 border-t-brand-600;
+  }
+
+  /* Focus ring – accessible */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
+  }
+}
+
+/* ─── Scrollbar styling (WebKit) ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-stone-100; }
+::-webkit-scrollbar-thumb { @apply bg-stone-300 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-stone-400; }
